@@ -22,7 +22,7 @@ class Artist
   extend Memorable::ClassMethods
   include Memorable::InstanceMethods
 extend Findable
-extend Paramable
+include Paramable
 
   def add_song(song)
     @songs << song
@@ -33,7 +33,5 @@ extend Paramable
     songs.each { |song| add_song(song) }
   end
 
-  def to_param
-    name.downcase.gsub(' ', '-')
-  end
+
 end
